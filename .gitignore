@@ -1,3 +1,16 @@
+# Editor and OS-specific files
+.vscode/
+.idea/
+*.iml
+.DS_Store
+
+# Node.js/TypeScript build and dependency files
+node_modules/
+*.js
+*.js.map
+build-*
+*.zip
+
 # Logs
 logs
 *.log
@@ -119,8 +132,13 @@ dist
 # Firebase cache directory
 .firebase/
 
+
 # TernJS port file
 .tern-port
+
+# Terraform state and cache
+.terraform/
+*.tfstate*
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test

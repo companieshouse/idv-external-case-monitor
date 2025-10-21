@@ -1,0 +1,56 @@
+{
+  "name": "idv-external-case-monitor",
+  "version": "1.0.0",
+  "description": "Service to monitor and update the status of non-GovUK Onelogin identity verification cases. Automates tracking, verifying, and closing cases using third-party APIs and notification services.",
+  "main": "dist/app.js",
+  "engines": {
+    "node": "24.x",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint 'src/**/*.ts' 'test/src/**/*.ts'",
+    "lint:fix": "eslint 'src/**/*.ts' 'test/src/**/*.ts' --fix",
+    "coverage": "jest --coverage",
+    "test": "jest"
+  },
+  "author": "Companies House",
+  "license": "MIT",
+  "dependencies": {
+    "@companieshouse/api-sdk-node": "^2.0.276",
+    "@companieshouse/structured-logging-node": "^2.0.1",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "http-status-codes": "^2.3.0",
+    "private-api-sdk-node": "github:companieshouse/private-api-sdk-node#1.0.92"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.156",
+    "@types/eslint": "^9.6.1",
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "esbuild": "^0.25.11",
+    "eslint": "^8.56.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/companieshouse/idv-external-case-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/companieshouse/idv-external-case-monitor/issues"
+  },
+  "homepage": "https://github.com/companieshouse/idv-external-case-monitor#readme"
+}
