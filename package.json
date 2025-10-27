@@ -2,14 +2,14 @@
   "name": "idv-external-case-monitor",
   "version": "1.0.0",
   "description": "Service to monitor and update the status of non-GovUK Onelogin identity verification cases. Automates tracking, verifying, and closing cases using third-party APIs and notification services.",
-  "main": "dist/app.js",
+  "main": "app.js",
   "engines": {
     "node": "24.x",
     "npm": ">=10"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/app.js",
     "lint": "eslint 'src/**/*.ts' 'test/src/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' 'test/src/**/*.ts' --fix",
     "coverage": "jest --coverage",
