@@ -1,7 +1,7 @@
 {
   "name": "idv-external-case-monitor",
   "version": "1.0.0",
-  "description": "Service to monitor and update the status of non-GovUK Onelogin identity verification cases. Automates tracking, verifying, and closing cases using third-party APIs and notification services.",
+  "description": "A Lambda that triggers idv-external-case-api to start an asynchronous poll-and-update cycle for complex (non-OneLogin) identity verification backlog cases.",
   "main": "app.js",
   "engines": {
     "node": "24.x",
