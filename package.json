@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A Lambda that triggers idv-external-case-api to start an asynchronous poll-and-update cycle for complex (non-OneLogin) identity verification backlog cases.",
   "main": "app.js",
-  "engines": {
-    "node": "24.x",
-    "npm": ">=10"
+   "engines": {
+    "node": ">=24.0.0"
   },
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "build": "tsc",
     "start": "node dist/app.js",
     "lint": "eslint 'src/**/*.ts' 'test/src/**/*.ts'",
