@@ -1,0 +1,38 @@
+{
+    "ignorePatterns": ["node_modules/"],
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module",
+        "ecmaFeatures": {}
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "overrides": [
+         {
+            "files": ["*.test.ts"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+        }
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "semi": [2, "always"],
+        "no-unused-vars": "off",
+        "padded-blocks": "off",
+        "@typescript-eslint/no-explicit-any": "error"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "env": {
+        "node": true,
+        "commonjs": true,
+        "jest": true,
+        "es6": true
+    }
+}
