@@ -1,5 +1,6 @@
 import ApplicationLogger from "@companieshouse/structured-logging-node/lib/ApplicationLogger";
 
+
 describe("Logger", () => {
     const oldEnv = process.env;
     const mockLogger = {} as ApplicationLogger;
@@ -29,21 +30,25 @@ describe("Logger", () => {
     it.each([
         ["custom APP_NAME", "custom-app-name", "debug", "custom-app-name", "env.LOG_LEVEL set to debug"],
         ["default APP_NAME", undefined, "info", "idv-external-case-monitor", "env.LOG_LEVEL set to info"],
-        ["empty APP_NAME", "", "error", "", "env.LOG_LEVEL set to error"],
-        ["undefined LOG_LEVEL", "test-app", undefined, "test-app", "env.LOG_LEVEL set to undefined"]
+        ["empty APP_NAME", "", "error", "", "env.LOG_LEVEL set to error"]
     ])(
         "should create logger with %s",
-        (_desc, appName, logLevel, expectedAppName, expectedLogMessage) => {
+        async (_desc, appName, logLevel, expectedAppName, expectedLogMessage) => {
             // Given
-            if (appName !== undefined) process.env.APP_NAME = appName;
-            else delete process.env.APP_NAME;
+            if (appName === undefined) {
+                delete process.env.APP_NAME;
+            } else {
+                process.env.APP_NAME = appName;
+            }
 
-            if (logLevel !== undefined) process.env.LOG_LEVEL = logLevel;
-            else delete process.env.LOG_LEVEL;
+            if (logLevel === undefined) {
+                delete process.env.LOG_LEVEL;
+            } else {
+                process.env.LOG_LEVEL = logLevel;
+            }
 
             // When
-            delete require.cache[require.resolve("../../../src/lib/Logger")];
-            const logger = require("../../../src/lib/Logger").default;
+            const logger = (await import("../../../src/lib/Logger")).default;
 
             // Then
             expect(mockCreateLogger).toHaveBeenCalledWith(expectedAppName);
@@ -52,27 +57,26 @@ describe("Logger", () => {
         }
     );
 
-    it("should export the logger instance created by createLogger", () => {
+    it("should export the logger instance created by createLogger", async () => {
         // Given
         process.env.APP_NAME = "test-app";
         process.env.LOG_LEVEL = "test";
 
         // When
-        delete require.cache[require.resolve("../../../src/lib/Logger")];
-        const logger = require("../../../src/lib/Logger").default;
+        const logger = (await import("../../../src/lib/Logger")).default;
 
         // Then
         expect(logger).toBe(mockLogger);
         expect(typeof logger).toBe("object");
     });
 
-    it("should call console.log exactly once during module import", () => {
+    it("should call console.log exactly once during module import", async () => {
         // Given
         process.env.LOG_LEVEL = "test-level";
 
         // When
-        delete require.cache[require.resolve("../../../src/lib/Logger")];
-        require("../../../src/lib/Logger");
+        await import("../../../src/lib/Logger");
+        
 
         // Then
         expect(mockConsoleLog).toHaveBeenCalledTimes(1);

@@ -1,4 +1,5 @@
-artifact_name := idv-external-case-monitor
+artifact_name 		:= idv-external-case-monitor
+version             := "unversioned"
 
 .PHONY: all
 all: build
@@ -18,6 +19,30 @@ build:  install
 .PHONY: install
 install:
 	npm i
+
+.PHONY: test
+test:
+	npm run coverage
+
+.PHONY: test-unit
+test-unit:
+	npm run test
+
+.PHONY: lint
+lint:
+	npm run lint
+
+.PHONY: dependency-check
+dependency-check:
+	npm audit
+
+.PHONY: security-check
+security-check:
+	npm audit --audit-level=high
+
+.PHONY: sonar
+sonar: test
+	npm run sonarqube
 
 .PHONY: package
 package: build
