@@ -13,7 +13,9 @@ clean:
 
 
 .PHONY: build
-build:  install
+build:
+	npm i
+	npm run lint
 	npm run build
 
 .PHONY: install
