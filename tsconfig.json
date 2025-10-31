@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es2022",
+    "module": "commonjs",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "typeRoots": ["src/types", "node_modules/@types"],
-    "types": ["node", "eslint", "jest", "aws-lambda"]
+    "types": ["node", "jest", "aws-lambda"]
   },
   "ts-node": {
     "esm": true
