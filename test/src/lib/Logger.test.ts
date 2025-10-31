@@ -48,7 +48,6 @@ describe("Logger", () => {
             }
 
             // When
-            delete require.cache[require.resolve("../../../src/lib/Logger")];
             const logger = (await import("../../../src/lib/Logger")).default;
 
             // Then
@@ -76,8 +75,8 @@ describe("Logger", () => {
         process.env.LOG_LEVEL = "test-level";
 
         // When
-        delete require.cache[require.resolve("../../../src/lib/Logger")];
         await import("../../../src/lib/Logger");
+        
 
         // Then
         expect(mockConsoleLog).toHaveBeenCalledTimes(1);
