@@ -41,7 +41,7 @@ export default  [
         },
     },
     {
-        files: ["*.test.ts"],
+        files: ["**/*.test.ts"],
         rules: {
             "no-unused-expressions": "off",
         },
