@@ -12,7 +12,7 @@ jest.mock("../../../src/lib/Logger");
 
 describe("createPrivateApiKeyClient", () => {
     it("should return private Key API client", () => {
-        // Given
+    // Given
         const privateApiClient: PrivateApiClient = new PrivateApiClient({} as IHttpClient, {} as IHttpClient);
         (createPrivateApiClient as jest.Mock).mockReturnValue(privateApiClient);
         // When
