@@ -23,7 +23,7 @@ install:
 	npm i
 
 .PHONY: test
-test:
+test:	install
 	npm run coverage
 
 .PHONY: test-unit

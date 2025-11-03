@@ -30,7 +30,6 @@ describe("getEnvironmentValue", () => {
         {
             returnInfo: "an empty string",
             condition: "the key not provided",
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             key: undefined!,
             expectedValue: ""
         }

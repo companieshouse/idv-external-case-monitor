@@ -58,7 +58,7 @@ describe("Logger", () => {
     );
 
     it("should export the logger instance created by createLogger", async () => {
-        // Given
+    // Given
         process.env.APP_NAME = "test-app";
         process.env.LOG_LEVEL = "test";
 
@@ -71,12 +71,12 @@ describe("Logger", () => {
     });
 
     it("should call console.log exactly once during module import", async () => {
-        // Given
+    // Given
         process.env.LOG_LEVEL = "test-level";
 
         // When
         await import("../../../src/lib/Logger");
-        
+
 
         // Then
         expect(mockConsoleLog).toHaveBeenCalledTimes(1);
